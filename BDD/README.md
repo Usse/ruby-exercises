@@ -1,5 +1,5 @@
 ###Run tests
-```ruby
+```sh
 $> rspec spec
 ```
 
