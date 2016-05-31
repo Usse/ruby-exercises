@@ -18,9 +18,9 @@ class Library
   end
 
   def get_book(title)
-    @books.select do |book|
+    @books.find do |book|
       book.title == title
-    end.first
+    end
   end
 
   def save(lib_file = false)
