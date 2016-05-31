@@ -6,26 +6,26 @@ describe Book do
   end
 
   describe '#new' do
-    it 'takes three parameters and returns a Book object' do
-      expect(@book).to be_an_instance_of Book
+    context 'takes three parameters and returns a Book object' do
+      it { expect(@book).to be_an_instance_of Book }
     end
   end
 
   describe '#title' do
-    it 'returns the correct title' do
-      expect(@book.title).to eql 'Title'
+    context 'returns the correct title' do
+      it { expect(@book.title).to eql 'Title' }
     end
   end
 
   describe '#author' do
-    it 'returns the correct author' do
-      expect(@book.author).to eql 'Author'
+    context 'returns the correct author' do
+      it { expect(@book.author).to eql 'Author' }
     end
   end
 
   describe '#category' do
-    it 'returns the correct category' do
-      expect(@book.category).to eql :category
+    context 'returns the correct category' do
+      it { expect(@book.category).to eql :category }
     end
   end
 end

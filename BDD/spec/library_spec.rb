@@ -35,20 +35,26 @@ describe 'Library object' do
     end
   end
 
-  it 'returns all the books in a given category' do
-    expect(@lib.get_books_in_category(:development).length).to eql 2
+  context 'category' do
+    it 'returns all the books in a given category' do
+      expect(@lib.get_books_in_category(:development).length).to eql 2
+    end
   end
 
-  it 'accepts new books' do
-    @lib.add_book(Book.new('Designing for the Web', 'Mark Boulton', :design))
-    expect(@lib.get_book('Designing for the Web')).to be_an_instance_of Book
+  context 'new books' do
+    it 'accepts new books' do
+      @lib.add_book(Book.new('Designing for the Web', 'Mark Boulton', :design))
+      expect(@lib.get_book('Designing for the Web')).to be_an_instance_of Book 
+    end
   end
 
-  it 'saves the library' do
-    books = @lib.books.map(&:title)
-    @lib.save
-    lib2 = Library.new 'books.yml'
-    books2 = lib2.books.map(&:title)
-    expect(books).to eql books2
+  context 'saves the library' do
+    it {
+      books = @lib.books.map(&:title)
+      @lib.save
+      lib2 = Library.new 'books.yml'
+      books2 = lib2.books.map(&:title)
+      expect(books).to eql books2
+    }
   end
 end
